@@ -1,0 +1,74 @@
+.main {
+  background: #f8f8f8;
+}
+
+.title-contents {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+}
+
+.service-title {
+  font-size: 8vh;
+}
+
+.service-explain {
+  font-size: 2.5vh;
+  line-height: 40px;
+}
+
+.property-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.property-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.property-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.property-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.property-img-content {
+  position: relative;
+}
+
+.property-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.property-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.property-name {
+  font-size: 2.5vh;
+}
+
+.property-frequency {
+  font-size: 2vh;
+  display: flex;
+  justify-content: space-between;
+}

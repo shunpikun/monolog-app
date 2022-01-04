@@ -1,0 +1,12 @@
+.second-header {
+  width:100%;
+  background-color:#fafafa;
+  height: 120px;
+  padding: 30px 0;
+}
+
+.second-header-title {
+  font-size: 5vh;
+  font-weight: bold;
+  text-align: center;
+}
