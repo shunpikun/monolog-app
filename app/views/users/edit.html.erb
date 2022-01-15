@@ -1,0 +1,26 @@
+<div class="main-contents">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザー編集</h2>
+
+      <%= link_to "トップページに戻る", root_path, class: 'btn'%>
+
+      <%= form_with model: current_user, local: true do |f| %>
+        
+       <div class="field">
+          <%= f.label :nickname, "ユーザー名" %><br />
+          <%= f.text_field :nickname, id:"user_name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更新する", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
