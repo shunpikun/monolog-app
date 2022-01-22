@@ -16,36 +16,36 @@
   <div class="property-contents">
     <h2 class="title">家にあるもの一覧</h2>
     <ul class="property-lists">
-
-      <li class="list">
-      <%= link_to "#" do %>
-        <div class="property-img-content">
-        </div>
-        <div class="property-info">
-          <h3 class="property-name">
-            <%= "家のもの" %>
-          </h3>
-          <div class="property-frequency">
-            <%= "使用頻度" %>
+      <% @properties.each do |property| %>
+        <li class="list">
+        <%= link_to "#" do %>
+          <div class="property-img-content">
+           <%= image_tag property.image %><br>
           </div>
-        </div>
-      <% end %>
-      </li>
-      <%# <ダミー> %>
-      <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "property-sample.png", class: "property-img" %>
-        <div class="property-info">
-          <h3 class="property-name">
-            ものを登録してください
-          </h3>
-          <div class="property-frequency">
-            良く使用する
+          <div class="property-info">
+            <h3 class="property-name">
+              <%= property.name %>
+            </h3>
+            <div class="property-frequency">
+              <%= property.frequency.name %>
+            </div>
           </div>
-        </div>
         <% end %>
-      </li>
-      <%# <ダミー> %>
+        </li>
+      <% end %>
+      <% if @properties.blank? %>
+        <li class='list'>
+          <%= image_tag "property-sample.png", class: "property-img" %>
+          <div class="property-info">
+            <h3 class="property-name">
+              ものを登録してください
+            </h3>
+            <div class="property-frequency">
+              毎日使用する  
+            </div>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
