@@ -6,6 +6,8 @@
     </h2>
     <%= form_with model: @property, method: :post, id: 'new_property', local: true do |f| %>
 
+    <%= render 'shared/error_messages', model: f.object %>
+
     <div class="img-upload">
      <div class="bold-text">
        家の物の画像
