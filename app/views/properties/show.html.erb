@@ -1,0 +1,45 @@
+<%= render "shared/header" %>
+
+<div class="property-show">
+  <div class="property-box">
+    <h2 class="name">
+      <%= @property.name %>
+    </h2>
+    <div class="property-img-content">
+      <%= image_tag @property.image, class: "main-image" %><br>
+    </div>
+    <div class="property-storage-box">
+      <span class="property-storage">
+        <%= @property.storage %>
+      </span>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= link_to "物の編集", "#", method: :get, class: "property-red-btn" %>
+      <p class="or-text">or</p>
+      <%= link_to "削除", "#", method: :delete, class:"property-destroy" %>
+    <% end %>
+
+    <div class="property-explain-box">
+      <span><%= @property.info %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-property">所有者</th>
+          <td class="detail-value"><%= @property.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-property">使用頻度</th>
+          <td class="detail-value"><%= @property.frequency.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-property">保管場所</th>
+          <td class="detail-value"><%= @property.storage %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

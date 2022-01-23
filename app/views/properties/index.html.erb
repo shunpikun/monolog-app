@@ -18,7 +18,7 @@
     <ul class="property-lists">
       <% @properties.each do |property| %>
         <li class="list">
-        <%= link_to "#" do %>
+        <%= link_to property_path(property.id) do %>
           <div class="property-img-content">
            <%= image_tag property.image %><br>
           </div>
@@ -26,8 +26,8 @@
             <h3 class="property-name">
               <%= property.name %>
             </h3>
-            <div class="property-frequency">
-              <%= property.frequency.name %>
+            <div class="property-storage">
+              <%= property.storage %>
             </div>
           </div>
         <% end %>
@@ -40,8 +40,8 @@
             <h3 class="property-name">
               ものを登録してください
             </h3>
-            <div class="property-frequency">
-              毎日使用する  
+            <div class="property-storage">
+              洗面台  
             </div>
           </div>
         </li>

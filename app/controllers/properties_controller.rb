@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @properties = Property.all.order('created_at DESC')
@@ -17,6 +17,10 @@ class PropertiesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @property = Property.find(params[:id])
   end
 
   private
