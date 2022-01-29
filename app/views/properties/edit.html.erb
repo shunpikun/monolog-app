@@ -4,7 +4,7 @@
     <h2 class="properties-register-title">
      家の物の情報を編集する
     </h2>
-    <%= form_with model: @property, method: :post, id: 'new_property', local: true do |f| %>
+    <%= form_with model: @property, method: :patch, id: 'new_property', local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -49,7 +49,7 @@
     </div>
     <div class="register-btn-contents">
         <%= f.submit "変更する" ,class:"register-btn" %>
-        <%=link_to 'もどる', root_path, class:"back-btn" %>
+        <%=link_to 'もどる', property_path, class:"back-btn" %>
     </div>
     <% end %>
   </div>
