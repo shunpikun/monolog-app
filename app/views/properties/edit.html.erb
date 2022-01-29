@@ -1,0 +1,59 @@
+<div class="properties-register-contents">
+<%= render "shared/second-header" %>
+  <div class="properties-register-main">
+    <h2 class="properties-register-title">
+     家の物の情報を登録する
+    </h2>
+    <%= form_with model: @property, method: :post, id: 'new_property', local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="img-upload">
+     <div class="bold-text">
+       家の物の画像
+       <span class="essential">必須</span>
+      </div>
+      <div class="click-upload">
+      <p>
+        クリックしてファイルをアップロード
+      </p>
+      <%= f.file_field :image, id:"property-image" %>
+    </div>
+    <div class="new-properties">
+      <div class="bold-text">
+        家の物の名前
+        <span class="essential">必須</span>
+      </div>
+      <%= f.text_area :name, class:"properties-text", id:"property-name", placeholder:"家の物の名前（ 40文字まで)", maxlength:"40" %>
+      <div class="properties-explain">
+        <div class="bold-text">
+          家の物の説明
+          <span class="essential">必須</span>
+        </div>
+        <%= f.text_area :info, class:"properties-text", id:"property-info", placeholder:"家の物の説明 （ 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <div class="form">
+        <div class="bold-text">
+          使用頻度
+          <span class="essential">必須</span>
+        </div>
+        <%= f.collection_select(:frequency_id, Frequency.all, :id, :name, {include_blank: '---'}, {class:"select-box", id:"property-frequency"}) %>
+      </div>
+      <div class="properties-place">
+        <div class="bold-text">
+          保管場所
+          <span class="essential">必須</span>
+        </div>
+        <%= f.text_area :storage, class:"properties-text", id:"property-storage", placeholder:"家の物の保管場所（ 40文字まで)", maxlength:"40" %>
+      </div>
+    </div>
+    <div class="register-btn-contents">
+        <%= f.submit "登録する" ,class:"register-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer" %>
+
+
