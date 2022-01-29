@@ -37,7 +37,8 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    
+    @property = Property.find(params[:id])
+    redirect_to root_path if @property.destroy
   end
 
   private
