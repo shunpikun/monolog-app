@@ -17,7 +17,7 @@
     <% if user_signed_in? %>
       <%= link_to "物の編集", edit_property_path, method: :get, class: "property-red-btn" %>
       <p class="or-text">or</p>
-      <%= link_to "削除", "#", method: :delete, class:"property-destroy" %>
+      <%= link_to "削除", property_path(property.id), method: :delete, class:"property-destroy" %>
     <% end %>
 
     <div class="property-explain-box">

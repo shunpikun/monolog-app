@@ -36,6 +36,10 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def destroy
+    
+  end
+
   private
 
   def property_params
