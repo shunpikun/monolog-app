@@ -15,7 +15,7 @@
     </div>
 
     <% if user_signed_in? %>
-      <%= link_to "物の編集", "#", method: :get, class: "property-red-btn" %>
+      <%= link_to "物の編集", edit_property_path, method: :get, class: "property-red-btn" %>
       <p class="or-text">or</p>
       <%= link_to "削除", "#", method: :delete, class:"property-destroy" %>
     <% end %>

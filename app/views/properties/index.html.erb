@@ -16,24 +16,28 @@
   <div class="property-contents">
     <h2 class="title">家にあるもの一覧</h2>
     <ul class="property-lists">
-      <% @properties.each do |property| %>
-        <li class="list">
-        <%= link_to property_path(property.id) do %>
-          <div class="property-img-content">
-           <%= image_tag property.image %><br>
-          </div>
-          <div class="property-info">
-            <h3 class="property-name">
-              <%= property.name %>
-            </h3>
-            <div class="property-storage">
-              <%= property.storage %>
-            </div>
-          </div>
+      <% if user_signed_in? %>
+        <% @properties.each do |property| %>
+          <% if property.user_id == current_user.id %>
+            <li class="list">
+              <%= link_to property_path(property.id) do %>
+                <div class="property-img-content">
+                  <%= image_tag property.image %><br>
+                </div>
+                <div class="property-info">
+                  <h3 class="property-name">
+                    <%= property.name %>
+                  </h3>
+                  <div class="property-storage">
+                    <%= property.storage %>
+                  </div>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
-        </li>
       <% end %>
-      <% if @properties.blank? %>
+      <% if @properties_id.blank? %>
         <li class='list'>
           <%= image_tag "property-sample.png", class: "property-img" %>
           <div class="property-info">
