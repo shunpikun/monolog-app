@@ -23,6 +23,10 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
   end
 
+  def edit
+    @property = Property.find(params[:id])
+  end
+
   private
 
   def property_params
