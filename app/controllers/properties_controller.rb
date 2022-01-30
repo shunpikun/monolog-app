@@ -4,6 +4,9 @@ class PropertiesController < ApplicationController
 
   def index
     @properties = Property.all.order('created_at DESC')
+    if user_signed_in?
+      @properties = Property.where(user_id: current_user.id)
+    end
   end
 
   def new
