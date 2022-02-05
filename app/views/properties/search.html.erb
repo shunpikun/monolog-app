@@ -1,21 +1,27 @@
 <%= render "shared/header" %>
-<h3>検索ページ</h3>
-<h3><%= link_to 'トップページへ戻る', root_path %></h3>
-<div class='property-contents' id="detailed-search-result-wrapper">
+<h3 class="property-search-title">検索ページ</h3>
+<h3 class="property-search-subtitle"><%= link_to 'トップページへ戻る', root_path %></h3>
+<div class='property-search-contents' id="detailed-search-result-wrapper">
   <%= search_form_for @q, url: search_properties_path, html: {id: "detailed-search-form"} do |f| %>
      <div class="search-field">
       <%= f.label :name_cont, '物の名前' %>
       <br>
       <%= f.text_field :name_cont, placeholder: '物の名前' %>
     </div>
+    <div class="search-field">
+      <%= f.label :frequency_id_eq, '使用頻度' %>
+      <br>
+      <%= f.collection_check_boxes(:frequency_id_in, Frequency.all, :id, :name, {include_blank: "---"}) %>
+    </div>
+    <%= f.submit '検索' %>
   <% end %>
   <ul class='property-search-lists' id="detailed-search-result">
     <% @properties.each do |property| %>
       <li class='list'>
         <div class="posted-content">
           <%= image_tag property.image %><br>
-          <%= property.name%><br>
-          <%= link_to '詳細', property_path(property.id)%>
+          <%= property.name %><br>
+          <%= link_to '詳細', property_path(property.id) %>
         </div>
       </li>
     <% end %>
