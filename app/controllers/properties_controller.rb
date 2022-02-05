@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_property, except: [:index, :new, :create]
+  before_action :set_property, except: [:index, :new, :create, :search]
 
   def index
     @properties = Property.all.order('created_at DESC')
@@ -39,6 +39,18 @@ class PropertiesController < ApplicationController
 
   def destroy
     redirect_to root_path if @property.destroy
+  end
+
+  def search
+    if params[:q]&.dig(:name)
+      squished_keywords = params[:q][:name].squish
+      params[:q][:name_cont_any] = squished_keywords.split(" ")
+    end
+
+    if user_signed_in?
+      @q = Property.where(user_id: current_user.id).ransack(params[:q])
+    end
+    @properties = @q.result
   end
 
   private

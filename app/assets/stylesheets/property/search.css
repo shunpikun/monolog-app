@@ -1,0 +1,39 @@
+.property-search-title {
+  font-weight: bold;
+  margin-left: 15vw;
+  font-size: 3vh;
+  padding-bottom: 3vh;
+}
+
+.property-search-subtitle {
+  margin-left: 15vw;
+  font-size: 3vh;
+  padding-bottom: 3vh;
+}
+
+.property-search-contents {
+  margin-left: 15vw;
+}
+
+.search-field {
+  width: 300px;
+  padding: 2vh 0;
+}
+
+.search-field>label {
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+.property-search-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.property-search-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
