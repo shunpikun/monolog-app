@@ -42,6 +42,11 @@ class PropertiesController < ApplicationController
   end
 
   def search
+    if params[:q]&.dig(:name)
+      squished_keywords = params[:q][:name].squish
+      params[:q][:name_cont_any] = squished_keywords.split(" ")
+    end
+
     if user_signed_in?
       @q = Property.where(user_id: current_user.id).ransack(params[:q])
     end

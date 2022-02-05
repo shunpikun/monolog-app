@@ -4,9 +4,9 @@
 <div class='property-search-contents' id="detailed-search-result-wrapper">
   <%= search_form_for @q, url: search_properties_path, html: {id: "detailed-search-form"} do |f| %>
      <div class="search-field">
-      <%= f.label :name_cont, '物の名前' %>
+      <%= f.label :name, '物の名前' %>
       <br>
-      <%= f.text_field :name_cont, placeholder: '物の名前' %>
+      <%= f.text_field :name, placeholder: '物の名前', value: params[:q]&.dig(:name) %>
     </div>
     <div class="search-field">
       <%= f.label :frequency_id_eq, '使用頻度' %>
