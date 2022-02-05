@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "properties#index"
-  resources :properties
+  resources :properties do
     collection do
-      get 'seach'
+      get 'search'
     end
+  end
   resources :users, only: [:edit, :update]
 end
