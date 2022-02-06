@@ -12,28 +12,26 @@
 }
 
 .property-search-contents {
-  margin-left: 15vw;
+  text-align: center;
 }
 
 .search-field {
-  width: 300px;
   padding: 2vh 0;
 }
 
 .search-field>label {
-  font-size: 2vh;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .property-search-lists {
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .property-search-lists>.list {
-  width: 37vh;
-  padding: 1vw;
+  width: 33vh;
+  padding-top: 5vh;
   background-color: #FFF;
 }
