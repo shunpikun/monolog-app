@@ -3,9 +3,9 @@ class PropertiesController < ApplicationController
   before_action :set_property, except: [:index, :new, :create, :search]
 
   def index
-    @properties = Property.all.order('created_at DESC')
+    @properties = Property.all
     if user_signed_in?
-      @properties = Property.where(user_id: current_user.id)
+      @properties = Property.where(user_id: current_user.id).order('created_at DESC')
     end
   end
 
